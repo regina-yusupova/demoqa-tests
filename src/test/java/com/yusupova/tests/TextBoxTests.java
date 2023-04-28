@@ -1,19 +1,18 @@
 package com.yusupova.tests;
-
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
 import java.io.File;
-
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
 public class TextBoxTests {
     @BeforeAll
-    public static void pageLoadTimeout () {
+    public static void pageLoadTimeout() {
         Configuration.pageLoadTimeout = 600000;
     }
+
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "2100x1080";
@@ -47,6 +46,4 @@ public class TextBoxTests {
                 "Address adress 1\n" +
                 "State and City NCR Delhi"));
     }
-
-
 }
