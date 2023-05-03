@@ -7,15 +7,13 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class TextBoxTests {
-    @BeforeAll
-    public static void pageLoadTimeout() {
-        Configuration.pageLoadTimeout = 600000;
-    }
 
+public class PracticeFormTests {
+    
     @BeforeAll
-    static void beforeAll() {
+    public static void beforeAll() {
         Configuration.browserSize = "2100x1080";
+        Configuration.pageLoadTimeout = 600000;
     }
 
     @Test
@@ -30,11 +28,12 @@ public class TextBoxTests {
         $(".react-datepicker__day--026").click();
         $("#subjectsInput").setValue("m").pressEnter();
         $("[for=hobbies-checkbox-2]").click();
-        $("#uploadPicture").uploadFile(new File("src/test/data/logo.png"));
+        $("#uploadPicture").uploadFile(new File("src/test/resources/logo.png"));
         $("#currentAddress").setValue("adress 1");
         $("#react-select-3-input").setValue("N").pressEnter();
         $("#react-select-4-input").setValue("de").pressEnter();
         $("#submit").click();
+
         $("tbody").shouldHave(text("Student Name Tom Lenon\n" +
                 "Student Email qwe@asd.com\n" +
                 "Gender Male\n" +
