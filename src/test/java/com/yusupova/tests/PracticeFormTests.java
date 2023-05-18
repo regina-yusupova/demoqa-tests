@@ -6,21 +6,17 @@ import java.io.File;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static com.yusupova.tests.TestData.lastName;
+import static com.yusupova.tests.TestData.name;
 
 
-public class PracticeFormTests {
-    
-    @BeforeAll
-    public static void beforeAll() {
-        Configuration.browserSize = "2100x1080";
-        Configuration.pageLoadTimeout = 600000;
-    }
+public class PracticeFormTests extends TestBase {
 
     @Test
     void fillFormTest() {
         open("https://demoqa.com/automation-practice-form");
-        $("#firstName").setValue("Tom");
-        $("#lastName").setValue("Lenon");
+        $("#firstName").setValue(name);
+        $("#lastName").setValue(lastName);
         $("#userEmail").setValue("qwe@asd.com");
         $("[for=gender-radio-1]").click();
         $("#userNumber").setValue("1234567891");
@@ -28,8 +24,8 @@ public class PracticeFormTests {
         $(".react-datepicker__day--026").click();
         $("#subjectsInput").setValue("m").pressEnter();
         $("[for=hobbies-checkbox-2]").click();
-        $("#uploadPicture").uploadFile(new File("src/test/resources/logo.png"));
-        $("#currentAddress").setValue("adress 1");
+        $("#uploadPicture").uploadFile(new File("src/test/resources/img/logo.png"));
+        $("#currentAddress").setValue("address 1");
         $("#react-select-3-input").setValue("N").pressEnter();
         $("#react-select-4-input").setValue("de").pressEnter();
         $("#submit").click();
@@ -42,7 +38,7 @@ public class PracticeFormTests {
                 "Subjects Maths\n" +
                 "Hobbies Reading\n" +
                 "Picture logo.png\n" +
-                "Address adress 1\n" +
+                "Address address 1\n" +
                 "State and City NCR Delhi"));
     }
 }
