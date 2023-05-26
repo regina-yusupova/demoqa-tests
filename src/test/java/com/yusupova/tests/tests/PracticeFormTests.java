@@ -1,13 +1,14 @@
-package com.yusupova.tests;
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
+package com.yusupova.tests.tests;
+
 import org.junit.jupiter.api.Test;
+
 import java.io.File;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static com.yusupova.tests.TestData.lastName;
-import static com.yusupova.tests.TestData.name;
+import static com.yusupova.tests.tests.TestData.firstName;
+import static com.yusupova.tests.tests.TestData.lastName;
 
 
 public class PracticeFormTests extends TestBase {
@@ -15,7 +16,7 @@ public class PracticeFormTests extends TestBase {
     @Test
     void fillFormTest() {
         open("https://demoqa.com/automation-practice-form");
-        $("#firstName").setValue(name);
+        $("#firstName").setValue(firstName);
         $("#lastName").setValue(lastName);
         $("#userEmail").setValue("qwe@asd.com");
         $("[for=gender-radio-1]").click();

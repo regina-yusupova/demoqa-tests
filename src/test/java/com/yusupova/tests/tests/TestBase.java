@@ -1,4 +1,4 @@
-package com.yusupova.tests;
+package com.yusupova.tests.tests;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
